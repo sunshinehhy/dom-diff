@@ -1,0 +1,8 @@
+### HTMLCollection.item()
+
+Example:
+```
+var c = document.images;  // This is an HTMLCollection
+var img0 = c.item(0);     // You can use the item( ) method this way
+var img1 = c[1];          // But this notation is easier and more common
+```

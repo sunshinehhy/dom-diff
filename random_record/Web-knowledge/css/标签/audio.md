@@ -1,0 +1,1 @@
+http://www.w3school.com.cn/html5/html5_ref_eventattributes.asp  (h5 方法)

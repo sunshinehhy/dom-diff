@@ -1,0 +1,52 @@
+**2017.12.06**
+当有人抱怨怎么办？
+面对sun怎么说话？
+没有解决的问题？
+每天找什么话题？
+
+都是忠🍊回头客。让我突然间想到今天刚学了一个计算 engagement score from digital consumption公式，
+我也考虑为橙子自定义一个公式，受欢迎度=购买量*回头客数/销售时间（哈哈，没科学依据）
+
+事实证明已经跟忠于赣南脐橙的回头客形成默契，
+
+这几年的回头客们，为了省去编辑地址，今年把所有购买者信息存入云盘，以后为大家提高服务质量，提高效率
+**2017.12.10**
+今天下午4点半去看了《寻梦环游记》，花中注入了愿望，色彩斑斓的景色让人无限喜爱。
+问题：
+hi，盛涛老大，您好，我叫何辉云，来公司前期是做前端开发，后来因为工作需要也参与ios开发，目前从事ios开发有5个月，由于经验不足，有个问题想请教下。
+我们做订阅功能，涉及到做音频播放功能，我使用是AVPlayer接口，但是使用此方法点击播放有个等待过程，没有类似于喜马拉雅、得到app播放流畅，公司要求最好不使用第三方库，请问下有什么更好的方法么？
+希望抽空指点下，非常感谢。
+查阅网上很多资料，了解到有各种第三方库比如：DOUAudioStreamer   AFSoundManager ，没有类似于喜马拉雅、得到app播放及时，
+AudioToolbox
+
+哥哥，能推荐个做ios开发的认识不，我有个问题想请教下，现在公司做订阅功能，涉及到做音频播放功能，我使用是AVPlayer接口，功能虽然实现，但是使用此方法点击播放有个等待过程，没有类似于喜马拉雅、得到等app播放流畅，公司要求最好不使用第三方库，我跟领导说过这个问题，他说我使用的方法没有问题，但这是我负责的部分，想要体验更好，上线还是心里没底，想问问有什么更好的方法或者好的建议。
+
+，我自己觉得可以使用AudioToolbox接口，能实现边听边存、断点续传，但此接口
+
+##每天学习总结
+**2017.12.18**
+
+怎么跟踪拖的y值，往下拖是负值越来越多
+override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+        print("refreshControl scroll drag\(scrollView.bounds)")
+        refreshControl scroll drag(0.0, -1.0, 375.0, 510.0)
+    }
+
+print("refreshControl scroll drag\(scrollView.bounds.origin.y)jjjj\(scrollView.contentOffset)")
+
+scrollView.frame.origin.y这个下拉一直未0
+位置一起动，所以位置应该为负数
+//        label.bounds.size.width = label.bounds.size.width
+值变了，但没在ui上体现，这是为什么呢？
+
+怎么把scrollview停止拖动后立即停止滑动 取消其惯性   
+-(void)scrollViewWillBeginDecelerating: (UIScrollView *)scrollView{
+    [scrollView setContentOffset:scrollView.contentOffset animated:NO];
+} 我找到这个方法 
+
+sleep(forTimeInterval:)
+[self performSelector: target withObject: nil afterDelay:1.0f]; 
+scrollView.bounces = false
+
+

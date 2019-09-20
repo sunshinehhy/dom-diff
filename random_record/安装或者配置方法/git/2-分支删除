@@ -1,0 +1,41 @@
+详见<https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86>
+### 1.查看当前分支
+```
+git branch
+```
+假设结果为
+```
+    master
+   *wycnote
+```
+现在想要删除wycnote分支
+
+### 2.切换到master分支
+```
+git checkout master
+```
+再检查一下当前分支
+```
+git branch
+```
+假设成功切换，结果为：
+```
+   *master
+    wycnote
+```
+
+### 3.删除分支
+```
+git branch -d wycnote
+```
+
+如果分支没有完全合并，要强制删除分支：
+```
+git branch -D wycnote
+```
+
+### 4.删除远程分支
+如果该分支已经被推送到远程仓库，则还需要删除远程分支
+```
+git push origin --delete wycnote
+```

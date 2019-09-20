@@ -1,0 +1,16 @@
+ios:
+在DetailViewController中把数据传入DetailModelController，在DetailModelController中把数据传入ContentItemViewController。
+func fetchContentForUrl(){
+     在此函数中包含Download.saveFile()，保存json文件，包括story中内容和首页抓取内容
+}
+func loadImage( ){
+    在此函数中包含Download.saveFile(),保存图片
+}
+private func requestNewContentForWebview(){
+    在此函数中包含Download.saveFile()，保存SuperDataViewController  html文件
+}
+private func renderWebView() {
+    在此函数中包含Download.saveFile()，保存SuperContentItemViewController html文件
+}
+
+18911755208

@@ -1,0 +1,79 @@
+"dataForApp": [
+    {
+        "moduleTitle": "恰佩克童话",
+        "audioType": "200",
+        "modulePid": "116339132199997440",
+        "defaultSelectIndex":0 ,
+        "list": [
+            {
+            "audioPid": "116342499689238528",
+            "audioTitle": "02 | 邮递员的童话（下）",
+            "audioDuration": 1316,
+            "audioFree": 1,
+            "audioUrl": "http://coolcdn.igetcool.com/p/book/audio/20171101/1510149621522_48.m4a",
+            "audioTeller": "孙路路",
+            "audioArticleUrl": "http://test1-4.igetcool.com/draft?pid=167551751531139072&type=100&fid=166434248239222784&commentSwitch=0&timestamp=1518451645000&params_event=",
+            "bookCoverUrl": "https://coolcdn.igetcool.com/p/book/cover/20180209/1518185210000.jpg",
+            "miniCoverUrl": "https://coolcdn.igetcool.com/p/share/book/cover/20180209/1518185694000.jpg",
+            "topicFlag": 1,
+            "docSwitch": 0,
+            "commentSwitch": 0,
+            "audioStatus": 0
+            },
+            {
+            "audioPid": "116342723472134144",
+            "audioTitle": "04 | 医生的童话（中）",
+            "audioDuration": 1037,
+            "audioFree": 1,
+            "audioUrl": "http://coolcdn.igetcool.com/p/book/audio/20171101/1510149624697_48.m4a",
+            "audioTeller": "孙路路1",
+            "audioArticleUrl": "http://test1-4.igetcool.com/draft?pid=167551751531139072&type=100&fid=166434248239222784&commentSwitch=0&timestamp=1518451645000&params_event=",
+            "bookCoverUrl": "https://coolcdn.igetcool.com/p/book/cover/20180209/1518185210000.jpg",
+            "miniCoverUrl": "https://coolcdn.igetcool.com/p/share/book/cover/20180209/1518185694000.jpg",
+            "topicFlag": 1,
+            "docSwitch": 0,
+            "commentSwitch": 0,
+            "audioStatus": 0
+            }
+        ]
+    },
+    {
+        "moduleTitle": "某本书标题|某个分类的标题1",
+        "audioType": "200",
+        "modulePid": "135608867047477248",
+        "defaultSelectIndex":0 ,
+        "list": [
+            {
+            "audioPid": "135821663324475392",
+            "audioTitle": "2 怎样克服紧张感？",
+            "audioDuration": 414,
+            "audioFree": 1,
+            "audioUrl": "http://coolcdn.igetcool.com/p/course/audio/20171227/1514379462000_48.m4a",
+            "audioTeller": "孙路路",
+            "audioArticleUrl": "http://test1-4.igetcool.com/draft?pid=167551751531139072&type=100&fid=166434248239222784&commentSwitch=0&timestamp=1518451645000&params_event=",
+            "bookCoverUrl": "https://coolcdn.igetcool.com/p/book/cover/20180209/1518185210000.jpg",
+            "miniCoverUrl": "https://coolcdn.igetcool.com/p/share/book/cover/20180209/1518185694000.jpg",
+            "topicFlag": 1,
+            "docSwitch": 0,
+            "commentSwitch": 0,
+            "audioStatus": 0
+            },
+            {
+                "audioPid": "135823531022880768",
+                "audioTitle": "5 做一个吸引人的开场",
+                "audioDuration": 530,
+                "audioFree": 1,
+                "audioUrl": "http://coolcdn.igetcool.com/p/course/audio/20171227/1514379503000_48.m4a",
+                "audioTeller": "孙路路",
+                "audioArticleUrl": "http://test1-4.igetcool.com/draft?pid=167551751531139072&type=100&fid=166434248239222784&commentSwitch=0&timestamp=1518451645000&params_event=",
+                "bookCoverUrl": "https://coolcdn.igetcool.com/p/book/cover/20180209/1518185210000.jpg",
+                "miniCoverUrl": "https://coolcdn.igetcool.com/p/share/book/cover/20180209/1518185694000.jpg",
+                "topicFlag": 1,
+                "docSwitch": 0,
+                "commentSwitch": 0,
+                "audioStatus": 0
+                }
+
+        ]
+    }
+]
