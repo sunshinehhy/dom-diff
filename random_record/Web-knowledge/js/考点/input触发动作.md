@@ -32,3 +32,17 @@ Safari < 10.2 & UIWebView doesn't fire compositionend
 **为什么使用延时器？**
 因为选词结束的时候input会比compositionend先一步触发，此时flag还未调整为true，所以不能触发到console，故用setTimeout将其优先级滞后。
 
+## 设置留言输入框高度思路
+```
+    <div class="test-input">
+      <textarea rows="20" cols="20" @focus="textareaFocus"></textarea>
+    </div>
+    /**
+     * 监听当window有滚动，则获取滚动的高度、输入框高度、设备高度，然后计算出软件的高度，最后面设置输入框的高度。
+     */
+    textareaFocus(){
+      window.onscroll = function(){
+        console.log('滚动高度：',document.body.scrollTop || document.documentElement.scrollTop)
+      }
+    }
+```

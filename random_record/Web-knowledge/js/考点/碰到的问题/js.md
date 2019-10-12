@@ -293,3 +293,36 @@ browser = 'Safari';
 ## 用 touchend.stop 触发弹框动作，当滑页面的时候，尽管没点击到按钮，偶现弹框
 
 改用 click 或者 fast-click
+
+
+## passive
+当touchstart和touchmove时，调用preventDefault()阻止滚动；
+但一般手机都不允许阻止滚动，可以通过passive: true来使得preventDefault()失效（也就是永远不会调用preventDefault()）。
+
+通过将touch或wheel侦听器标记为passive: true，不会调用preventDefault来禁用滚动。这使得浏览器可以在不等待JavaScript的情况下立即响应滚动，从而确保用户获得可靠的平滑滚动体验。
+
+https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md
+https://www.youtube.com/watch?v=DJYpXxWqvmo
+
+
+Feature Detection 
+```
+<!-- 检测是否支持passive -->
+// Test via a getter in the options object to see if the passive property is accessed
+var supportsPassive = false;
+try {
+  var opts = Object.defineProperty({}, 'passive', {
+    get: function() {
+      supportsPassive = true;
+    }
+  });
+  window.addEventListener("testPassive", null, opts);
+  window.removeEventListener("testPassive", null, opts);
+} catch (e) {}
+
+// Use our detect's results. passive applied if supported, capture will be false either way.
+elem.addEventListener('touchstart', fn, supportsPassive ? { passive: true } : false);
+```
+
+## +new Date()
++new Date()得到毫秒数，相当于new Date().getTime()
