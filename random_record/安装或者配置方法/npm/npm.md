@@ -20,3 +20,4 @@ http://www.cnblogs.com/itlkNote/p/6830682.html（npm 常用命令详解）
 ## 还原 npm 安装地址
 
 npm config set registry https://registry.npmjs.org
+

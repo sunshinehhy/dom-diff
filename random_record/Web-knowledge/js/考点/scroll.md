@@ -28,10 +28,24 @@
 
 ## 监听 scroll 事，吸顶，防止抖动
 
-https://cloud.tencent.com/developer/article/1059038
+https://cloud.tencent.com/developer/article/1059038 （占位符）
 
 https://blog.csdn.net/weixin_33834679/article/details/89134783
 
 https://www.jb51.net/article/56874.htm
 
 https://www.jb51.net/article/159340.htm
+
+
+fixed是脱离文档流，所以fixed和static之间切换样式会跳一下
+
+```
+window.onscroll=function(){console.log('scroll')}
+let evt = window.document.createEvent('UIEvents'); 
+evt.initUIEvent('scroll', true, false, window, 0); 
+window.dispatchEvent(evt);
+window.addEventListener('scroll', ()=>{
+  console.log('scroll1',leaveMessageSection.getBoundingClientRect().top)
+});
+会执行
+```

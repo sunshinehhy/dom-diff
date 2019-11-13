@@ -14,6 +14,8 @@
 cd project1
 npm link
 ```
+比如：
+npm link /Users/hehuiyun/hhy/project/base-components   这样就不用多次改版本号发版
 
 ### 2. 本地安装
 
