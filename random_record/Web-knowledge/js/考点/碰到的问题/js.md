@@ -326,3 +326,11 @@ elem.addEventListener('touchstart', fn, supportsPassive ? { passive: true } : fa
 
 ## +new Date()
 +new Date()得到毫秒数，相当于new Date().getTime()
+
+## https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver IntersectionObserver 这个api可以检测一个元素 是否进入/离开可视区，支持polyfill，实现sticky 这种操作的另一种思路，不需要计算，但是无法避免scroll移动端触发频率低的问题
+
+https://www.ruanyifeng.com/blog/2016/11/intersectionobserver_api.html
+
+检查某个元素是否进入了"视口"（viewport），即用户能不能看到它。
+
+传统的实现方法是，监听到scroll事件后，调用目标元素（绿色方块）的getBoundingClientRect()方法，得到它对应于视口左上角的坐标，再判断是否在视口之内。这种方法的缺点是，由于scroll事件密集发生，计算量很大，容易造成性能问题。

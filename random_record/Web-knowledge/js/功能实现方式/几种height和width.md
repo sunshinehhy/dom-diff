@@ -73,3 +73,10 @@ Returns width of browser viewport
 img-container 是 div 中的 class
 let imgContainer = document.querySelector(".img-container");
 imgContainer.style.height 是获取不到数据的。需要用以上方法（比如 clientHeight\offsetHeight，不过注意 2 者之间的区别）
+
+
+## document.documentElement.clientHeight 和 document.body.clientHeight
+
+screen.height： 屏幕高度，会包含手机导航栏高度
+document.documentElement.clientHeight：获取可视区高度，不会包含手机导航栏高度
+document.body.clientHeight：body整个高度
