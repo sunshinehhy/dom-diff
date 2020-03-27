@@ -130,10 +130,10 @@ let ProessFilePictureLink = function (filePath) {
 }
 // 图片上传阿里云，并获取图片地址
 let client = new OSS({
-    region: 'oss-cn-beijing',
-    accessKeyId: 'LTAIaAnxGNmDsiwL',
-    accessKeySecret: 'lIzF6Vfe8MogOOHIcLbYN1HzcITPyd',
-    bucket: 'igetcool-fe-demo',
+    region: '',
+    accessKeyId: '',
+    accessKeySecret: '',
+    bucket: '',
 });
 
 /**

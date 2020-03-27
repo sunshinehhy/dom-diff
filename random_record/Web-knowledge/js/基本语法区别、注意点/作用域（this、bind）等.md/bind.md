@@ -129,6 +129,7 @@ slice([21,2324,56]) //"function shift() { [native code] }"
 
 var slice = Function.prototype.toString.bind(Array.prototype.slice);
 slice([21,2324,56])  //"function slice() { [native code] }"
+console.log(Function.prototype.toString.bind(Array.prototype.slice))  //function () { [native code] }
 
 var slice = Function.prototype.hasOwnProperty.bind(Array.prototype.slice);
 slice([21,2324,56]) //false

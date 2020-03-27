@@ -1,5 +1,11 @@
 https://www.cnblogs.com/tandaxia/p/8810648.html
 
+https://www.cnblogs.com/dadonggg/p/7797281.html
+
+https://blog.csdn.net/xuexiaoyaani/article/details/80870609
+
+Nginx是一款轻量级的Web 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器，在BSD-like 协议下发行。
+
 ## 出错server name "*" has suspicious symbols
 
 
@@ -216,6 +222,8 @@ https://blog.csdn.net/bjnihao/article/details/52415269
 ~* 开头表示不区分大小写的正则匹配
 / 通用匹配, 如果没有其它匹配,任何请求都会匹配到
 
+@ 用于定义一个 Location 块，且该块不能被外部 Client 所访问，只能被 Nginx 内部配置指令所访问，比如 try_files or error_page (**见try_files，有实例**)
+
 ```
 location  = / {
   # 精确匹配 / ，主机名后面不能带任何字符串
@@ -270,3 +278,72 @@ location ~ /images/abc/ {
 location ~* /js/.*/\.js
 ```
 ## 网关转发
+
+## rewrite
+1. 指令语法：rewrite regex replacement[flag];
+
+　　默认值：none
+
+　　应用位置：server、location、if
+
+　　rewrite是实现URL重定向的重要指令，他根据regex(正则表达式)来匹配内容跳转到replacement，结尾是flag标记
+
+```
+　　简单的小例子：
+rewrite ^/(.*) http://www.baidu.com/ permanent;     # 匹配成功后跳转到百度，执行永久301跳转
+```
+
+rewrite 最后一项flag参数：
+
+标记符号	说明
+last	本条规则匹配完成后继续向下匹配新的location URI规则
+break	本条规则匹配完成后终止，不在匹配任何规则
+redirect	返回302临时重定向
+permanent	返回301永久重定向
+
+2. 应用场景：
+- 调整用户浏览的URL，看起来规范
+- 为了让搜索引擎收录网站内容，让用户体验更好
+- 网站更换新域名后
+- 根据特殊的变量、目录、客户端信息进行跳转
+3. 常用301跳转：
+　　之前我们通过用起别名的方式做到了不同地址访问同一个虚拟主机的资源，现在我们可以用一个更好的方式做到这一点，那就是跳转的方法
+
+## try_files
+try_files的语法规则：
+
+格式1：try_files file ... uri;  格式2：try_files file ... =code;
+
+```
+实例1
+location / {
+    try_files $uri $uri/ /index.php?$query_string;
+}
+```
+ 
+
+当用户请求 http://localhost/example 时，这里的 $uri 就是 /example。 
+try_files 会到硬盘里尝试找这个文件。如果存在名为 /$root/example（其中 $root 是项目代码安装目录）的文件，就直接把这个文件的内容发送给用户。 
+显然，目录中没有叫 example 的文件。然后就看 $uri/，增加了一个 /，也就是看有没有名为 /$root/example/ 的目录。 
+又找不到，就会 fall back 到 try_files 的最后一个选项 /index.php，发起一个内部 “子请求”，也就是相当于 nginx 发起一个 HTTP 请求到 http://localhost/index.php。 
+
+
+```
+实例2
+loaction / {
+
+try_files $uri @apache
+
+}
+
+loaction @apache{
+
+proxy_pass http://127.0.0.1:88
+
+include aproxy.conf
+
+}
+```
+try_files方法让Ngxin尝试访问后面得$uri链接，并进根据@apache配置进行内部重定向。
+
+当然try_files也可以以错误代码赋值，如try_files /index.php = 404 @apache，则表示当尝试访问得文件返回404时，根据@apache配置项进行重定向。

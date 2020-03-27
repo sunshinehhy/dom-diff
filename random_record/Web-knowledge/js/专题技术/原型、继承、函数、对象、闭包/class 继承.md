@@ -265,3 +265,25 @@ let person = new class {
 }('张三');
 
 person.sayName(); // "张三"
+
+## class大总结
+
+具体见：https://juejin.im/post/5e707417e51d45272054d5d3#heading-24
+
+(一) class的基本概念：
+
+- 当你使用class的时候，它会默认调用constructor这个函数，来接收一些参数，并构造出一个新的实例对象(this)并将它返回。
+- 如果你的class没有定义constructor，也会隐式生成一个constructor方法
+(二) class中几种定义属性的区别：：
+
+- 在constructor中var一个变量，它只存在于constructor这个构造函数中
+- 在constructor中使用this定义的属性和方法会被定义到实例上
+- 在class中使用=来定义一个属性和方法，效果与第二点相同，会被定义到实例上
+- 在class中直接定义一个方法，会被添加到原型对象prototype上
+- 在class中使用了static修饰符定义的属性和方法被认为是静态的，被添加到类本身，不会添加到实例上
+
+(三) other:
+
+- class本质虽然是个函数，但是并不会像函数一样提升至作用域最顶层
+- 如遇class中箭头函数等题目请参照构造函数来处理 （在构造函数中如果使用了箭头函数的话，this指向的就是这个实例对象）
+- 使用class生成的实例对象，也会有沿着原型链查找的功能
