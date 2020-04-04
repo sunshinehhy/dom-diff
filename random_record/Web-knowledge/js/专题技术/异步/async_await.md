@@ -150,6 +150,29 @@ var result = asyncReadFile();
 
 （3）更广的适用性。 co 函数库约定，yield 命令后面只能是 Thunk 函数或 Promise 对象，而 async 函数的 await 命令后面，可以跟 Promise 对象和原始类型的值（数值、字符串和布尔值，但这时等同于同步操作）。
 
+## async 函数的缺点
+
+（1）容易掉入陷阱，比如下面的函数结果不依赖上一个函数结果，就不需要使用await
+
+（2）async/await 的错误处理不直观
+
+（3）有误导性：async 函数仍然是 promises。在正确的使用 async 之前，你需要理解 promise，可能你在使用 async 的过程中也需要使用到 promise。`多数人认为 await 可以让异步函数变为同步函数的想法才是错误的`。
+
+ (4) 想依次获取一个列表中的所有项，你必须依赖 promises，不能使用await
+ ```
+ async getAuthors(authorIds) {
+  // 错误，这会导致`串行执行`
+  // const authors = _.map(
+  //   authorIds,
+  //   id => await authorModel.fetch(id));
+
+  // 正确
+  const promises = _.map(authorIds, id => authorModel.fetch(id));
+  const authors = await Promise.all(promises);
+}
+ ```
+ 简而言之，你仍然需要把工作流当成是异步的，然后尝试使用 await 去写同步代码。在更加复杂的工作流中，直接使用 promise 可能更方便。
+
 ## async 函数的实现
 
 async 函数的实现，就是将 Generator 函数和自动执行器，包装在一个函数里。
