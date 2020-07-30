@@ -34,3 +34,25 @@ border-spacing	设置分隔单元格边框的距离。
 caption-side	设置表格标题的位置。
 empty-cells	设置是否显示表格中的空单元格。
 table-layout	设置显示单元、行和列的算法。
+
+## table 边框加圆角踩坑
+
+https://juejin.im/post/5d96b6afe51d4578495472cd
+
+```
+table {
+    border: 1px solid #d8d8d8;
+    border-radius: 4px;
+    /* 消除单元格之间的空隙 */
+    border-collapse: collapse;
+    /* 消除掉外边框 */
+    border-style:hidden  
+    /* hack一下加个假边框 */
+    box-shadow: 0 0 0 1px #d8d8d8;
+}
+th,td {
+  border: 1px solid #d8d8d8;
+}
+
+
+```

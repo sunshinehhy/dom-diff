@@ -204,7 +204,8 @@ span{
 (4) `也可以设置内边界，但是内边界在ie6中不对上下起作用，只能对左右起作用`。
 
 常用的内联元素有：a - 锚点，b - 粗体(不推荐)，br - 换行，em - 强调，font - 字体设定(不推荐)，i - 斜体，img - 图片，input - 输入框，label - 表格标签，
-select - 项目选择，small - 小字体文本，span - 常用内联容器，定义文本内区块，strike - 中划线，strong - 粗体强调 2.块级元素 block element:
+select - 项目选择，small - 小字体文本，span - 常用内联容器，定义文本内区块，strike - 中划线，strong - 粗体强调 
+2.块级元素 block element:
 (1) 总是在新行上开始，占据一整行;
 (2) 高度，行高以及外边距和内边距都可控制;
 (3) 宽度始终是与浏览器宽度一样，与内容无关;
@@ -313,3 +314,8 @@ https://blog.csdn.net/qiqi_77_/article/details/79301214
 ```
 
 ```
+## padding
+
+padding属性设置一个元素的内边距，padding 区域指一个元素的内容和其边界之间的空间，该属性不能为负值。
+
+这个属性有个奇怪的现象，就是当width为100%时，padding-right 会失效。这种现象可以解释为‘流动性丢失’。

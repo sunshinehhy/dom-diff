@@ -120,6 +120,8 @@ export default myFunctionOrClass
 ## Node.js模块里exports与module.exports的区别?
 https://www.jianshu.com/p/e452203d56c4
 
+https://www.cnblogs.com/axl234/p/6405370.html
+
 - `require方能看到的只有module.exports这个对象，它看不到exports对象的，而我们在编写模块时用到的exports对象实际上只是对module.exports的引用。`
 - `exports 是指向的 module.exports 的引用`
 - module.exports 初始值为一个空对象 {}

@@ -58,6 +58,8 @@ div 标签中插入图片后,让 div 高度和图片一样，把 div 的 border 
 
 解决方案：
 
+直接把mousemove和mouseup这两个监听函数绑定到document或者body上就行了。
+
 鼠标移动过快时，不能做到移动一个像素，响应一次 mousemove 事件，所以导致，绘制的圆形不连续。我们换种思路，直接在两次响应 mousemove 事件时，绘制直线，正好可以连接中间的断点。
 为了美观，可以利用 lineCap 属性，可以保证直线两端为圆角
 
@@ -204,13 +206,17 @@ let that = this;
 
 ## 移动端弹出遮罩层时防止底部页面滚动
 
-`&是表示位的与运算，把左右两边的数字转化为二进制，然后每一位分别进行比较，如果相等就为 1，不相等即为 0。`
-
 监听遮罩层的打开和关闭
 打开时设置底部页面的 position: fixed
 关闭时恢复默认布局 position: static
 
+## ios 内层滚动到顶部或者底部无法滑动问题
+
+`&是表示位的与运算，把左右两边的数字转化为二进制，然后每一位分别进行比较，如果相等就为 1，不相等即为 0。`
+
+https://blog.csdn.net/sjn0503/article/details/77865648
 ```
+
 往下滑到底和往上滑到顶端需要preventDefault
 this.$nextTick(() => {
       let ruleELe = this.$refs.rule;
@@ -244,14 +250,20 @@ this.$nextTick(() => {
     });
 ```
 
-## ios 内层滚动到顶部或者底部无法滑动问题
 
-https://blog.csdn.net/sjn0503/article/details/77865648
 
-## fastclick
-
+## fastclick 解决300ms延迟和点击穿透
 https://segmentfault.com/a/1190000015234652 (原理)
 https://www.npmjs.com/package/fastclick
+
+fastclick中的实现方案，当检测到touchend事件的时候，会通过DOM自定义事件立即出发模拟一个click事件，并用preventDefault阻止300ms之后真正的click事件。
+
+fastclick的主要工作是在body或者顶层元素中绑定touch相关事件，在touch相关事件中标记手势的位置与时间，根据此信息拦截click事件并判断是否模拟触发。
+
+在处理300ms延迟的过程中，主要工作是模拟并拦截真正的click事件。
+首先，拦截点击事件的思路是将元素的onclick事件置为空，并用addEventListener重新绑定，理由是onclick将会在fastclick模拟的点击事件之前触发
+
+event.timeStamp返回的是一个毫秒时间戳，表示用户上一次刷新至该用户触发的时间。返回系统启动至今的分钟数
 
 ## 获取随机数
 
@@ -334,3 +346,38 @@ https://www.ruanyifeng.com/blog/2016/11/intersectionobserver_api.html
 检查某个元素是否进入了"视口"（viewport），即用户能不能看到它。
 
 传统的实现方法是，监听到scroll事件后，调用目标元素（绿色方块）的getBoundingClientRect()方法，得到它对应于视口左上角的坐标，再判断是否在视口之内。这种方法的缺点是，由于scroll事件密集发生，计算量很大，容易造成性能问题。
+
+## js中~~和 | 的妙用
+- 双~的用法
+~~它代表双非按位取反运算符，如果你想使用比Math.floor()更快的方法，那就是它了。需要注意，对于正数，它向下取整；对于负数，向上取整；非数字取值为0，它具体的表现形式为：
+~~   :转换成数字并且把小数点去掉    效率比Math.floor高
+```
+  ~~null;      // => 0
+  ~~undefined; // => 0
+  ~~Infinity;  // => 0
+  --NaN;       // => 0
+  ~~0;         // => 0
+  ~~{};        // => 0
+  ~~[];        // => 0
+  ~~(1/0);     // => 0
+  ~~false;     // => 0
+  ~~true;      // => 1
+  ~~1.9;       // => 1
+  ~~-1.9;      // => -1
+```
+
+- | 的用法，通常用来取整
+```
+  1.2|0  // 1
+  1.8|0 // 1
+  -1.2|0 // -1
+
+```
+
+## ResizeObserver()
+
+https://developer.mozilla.org/zh-CN/docs/Web/API/ResizeObserver
+
+ResizeObserver 接口可以监听到 Element 的内容区域或 SVGElement的边界框改变。内容区域则需要减去内边距padding。（有关内容区域、内边距资料见盒子模型 ）
+
+ResizeObserver避免了在自身回调中调整大小，从而触发的无限回调和循环依赖。它仅通过在后续帧中处理DOM中更深层次的元素来实现这一点。如果（浏览器）遵循规范，只会在绘制前或布局后触发调用。
