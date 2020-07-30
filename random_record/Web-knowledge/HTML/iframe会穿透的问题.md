@@ -1,1 +1,0 @@
-结合ad-management里面的html5Ad模板来看

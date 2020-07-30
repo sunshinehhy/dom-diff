@@ -1,1 +1,0 @@
-https://support.google.com/analytics/answer/6014841?hl=zh-Hans#product_attribution

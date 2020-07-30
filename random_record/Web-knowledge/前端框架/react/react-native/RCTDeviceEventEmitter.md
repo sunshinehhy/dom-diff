@@ -1,1 +1,0 @@
-RCTDeviceEventEmitter发送通知emit和监听接收addListener

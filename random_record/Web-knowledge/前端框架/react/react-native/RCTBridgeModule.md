@@ -1,1 +1,0 @@
-https://github.com/facebook/react-native/blob/master/React/Base/RCTBridgeModule.h
